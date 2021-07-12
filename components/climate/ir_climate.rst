@@ -39,6 +39,8 @@ request so it will be added (see FAQ).
 +---------------------------------------+---------------------+----------------------+
 | Hitachi                               | ``hitachi_ac344``   | yes                  |
 +---------------------------------------+---------------------+----------------------+
+| :ref:`Panasonic<climate_ir_panasonic>`| ``panasonic``       | yes                  |
++---------------------------------------+---------------------+----------------------+
 
 This component requires that you have setup a :doc:`/components/remote_transmitter`.
 
@@ -152,6 +154,30 @@ Configuration variables:
         header_high: 3265us # AC Units from LG in Brazil, for example use these timings
         header_low: 9856us
 
+
+.. _climate_ir_panasonic:
+
+``_climate_ir_panasonic`` Climate
+---------------------------------
+
+Additional configuration is available for this platform
+
+
+Configuration variables:
+
+- **supports_vertical_swing** (*Optional*, boolean): The AC's vanes can move vertically. Defaults to ``false``
+- **supports_horizontal_swing** (*Optional*, boolean): The AC's vanes can move horizontally. Defaults to ``false``
+- **supports_both_swing** (*Optional*, boolean): The AC's vanes can move both vertically and horizontally. Defaults to ``false``
+
+.. code-block:: yaml
+
+    # Example configuration entry
+    climate:
+      - platform: climate_ir_panasonic
+        name: "AC"
+        supports_vertical_swing: true
+
+
 See Also
 --------
 
@@ -166,4 +192,5 @@ See Also
   :apiref:`yashima.h <yashima/yashima.h>`
   :apiref:`whirlpool.h <whirlpool/whirlpool.h>`
   :apiref:`climate_ir_lg.h <climate_ir_lg/climate_ir_lg.h>`
+  :apiref:`panasonic.h <panasonic/panasonic.h>`
 - :ghedit:`Edit`
